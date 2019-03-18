@@ -72,12 +72,11 @@ do{
 //setze marker
 Sort=1;
 //überprüfe alle Fahrzeuge
-for(FahrzeugNo=0;FahrzeugNo<Anzahl;FahrzeugNo++){
+for(FahrzeugNo=0;FahrzeugNo<Anzahl-1;FahrzeugNo++){
 //schau ob die id des nächsten Fahrzeugs kleiner ist wie die des aktuellen Fahrzeugs (absteigend sortieren)
-if((daten+FahrzeugNo)->seriennummer<(daten+FahrzeugNo+1)->seriennummer){
+if(*(daten+FahrzeugNo)->seriennummer<*(daten+FahrzeugNo+1)->seriennummer){
 //markiere dass irgendwo noch was unsortiert ist
 Sort=0;
-printf("tausch");
 //Daten des aktuellen Fahrzeugs zwischenspeichern
 temp.hersteller=(daten+FahrzeugNo)->hersteller;
 temp.modell=(daten+FahrzeugNo)->modell;
@@ -99,11 +98,10 @@ temp.anzReifen=(daten+FahrzeugNo)->anzReifen;
 (daten+FahrzeugNo+1)->leerGewicht=temp.leerGewicht;
 (daten+FahrzeugNo+1)->leistung=temp.leistung;
 (daten+FahrzeugNo+1)->anzReifen=temp.anzReifen;
-
 }
 
 }
-}while(Sort=0);
+}while(Sort==0);
 
 
 

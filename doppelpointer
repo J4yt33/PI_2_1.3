@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct {
+    int  val1;
+    char val2;
+}Auto;
+
+
+void testfkt( Auto ** pA){
+void *pG=*pA;
+Auto * newCar =  pG;
+printf("%i\n",(newCar+1)->val1);
+
+
+}
+
+
+int main(){
+    Auto a[5];
+    (a+1)->val1 = 3;
+    void * pG=&a;
+    void * ppG=&pG;
+
+
+
+testfkt(ppG);
+return 0;
+}
